@@ -125,7 +125,7 @@ python3 diabetes_cleaning.py
 
 ## 🗺️ Learning Roadmap
 
-_**Project 2 of 10** _-> a structured series building from data exploration through to advanced ML techniques.
+_**Project 2 of 10** _ -> a structured series building from data exploration through to advanced ML techniques.
 
 | # | Project | Focus |
 |---|---------|-------|
