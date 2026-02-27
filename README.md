@@ -28,7 +28,7 @@ The Pima Indians Diabetes dataset records clinical measurements from female pati
 ## 🔧 Cleaning Pipeline
 
 ### Step 1: Detecting Impossible Zeros
-Five columns cannot legitimately be zero in a living patient: `Glucose`, `BloodPressure`, `SkinThickness`, `Insulin`, `BMI`. Zero entries in these columns are missing values entered as zeros — a common data entry convention in older clinical datasets.
+Five columns cannot legitimately be zero in a living patient: `Glucose`, `BloodPressure`, `SkinThickness`, `Insulin`, `BMI`. Zero entries in these columns are missing values entered as zeros, a common data entry convention in older clinical datasets.
 
 | Feature | Zero Count | % of Records |
 |---------|-----------|--------------|
@@ -38,10 +38,10 @@ Five columns cannot legitimately be zero in a living patient: `Glucose`, `BloodP
 | Insulin | 374 | 48.7% |
 | BMI | 11 | 1.4% |
 
-Insulin is missing for nearly half the dataset — naive deletion would lose almost half the data entirely.
+Insulin is missing for nearly half the dataset, naive deletion would lose almost half the data entirely.
 
 ### Step 2: Group-Wise Median Imputation
-Rather than replacing missing values with the overall column median, missing values are imputed separately within each outcome group (diabetic vs non-diabetic). This preserves the class-specific distributions — diabetic patients have characteristically different insulin and glucose profiles, and pooling the two groups for imputation would dilute that signal.
+Rather than replacing missing values with the overall column median, missing values are imputed separately within each outcome group (diabetic vs non-diabetic). This preserves the class-specific distributions, diabetic patients have characteristically different insulin and glucose profiles, and pooling the two groups for imputation would dilute that signal.
 
 ### Step 3: Outlier Detection and Capping
 IQR-based outlier detection flags values below Q1 − 1.5×IQR or above Q3 + 1.5×IQR. Rather than removing entire rows (which loses other valid measurements), extreme values are capped at the IQR boundaries. This neutralises distortion while keeping every patient in the dataset.
@@ -76,9 +76,9 @@ Min-Max scaling applied to all numerical features, followed by an 80/20 stratifi
 
 ## 🔍 Key Findings
 
-- Glucose is the strongest predictor of diabetes outcome (Pearson r ≈ 0.49) — both before and after cleaning
-- Obese patients show dramatically higher diabetes rates than overweight or normal BMI patients — the engineered `BMI_Category` captures this threshold effect that raw BMI misses
-- Insulin was missing for 48.7% of records — group-wise median imputation recovers this signal without introducing bias toward either class
+- Glucose is the strongest predictor of diabetes outcome (Pearson r ≈ 0.49) -> both before and after cleaning
+- Obese patients show dramatically higher diabetes rates than overweight or normal BMI patients -> the engineered `BMI_Category` captures this threshold effect that raw BMI misses
+- Insulin was missing for 48.7% of records -> group-wise median imputation recovers this signal without introducing bias toward either class
 - The `Glucose_Insulin_Ratio` interaction feature captures insulin resistance patterns invisible in either feature individually
 
 ---
@@ -125,7 +125,7 @@ python3 diabetes_cleaning.py
 
 ## 🗺️ Learning Roadmap
 
-**Project 2 of 10** — a structured series building from data exploration through to advanced ML techniques.
+_**Project 2 of 10** _-> a structured series building from data exploration through to advanced ML techniques.
 
 | # | Project | Focus |
 |---|---------|-------|
